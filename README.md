@@ -9,8 +9,11 @@
 Works in ChatGPT, Claude, and any LLM. Each prompt tested across 50+ real PM scenarios.
 
 **These 25 cover the core PM workflow. The full library has 82 prompts across 12 categories, with advanced variants, chaining techniques, and domain-specific versions for B2B, B2C, marketplace, and AI products.**
+## Quick links
 
-**[Get the full PM Prompt Library (82 prompts) →](https://www.news.aakashg.com/p/pm-prompt-library)**
+- [LinkedIn — Mohamed Rasik](https://www.linkedin.com/in/mohamedrasikr/)
+- [Website — Mohamed Rasik](https://mohamedrasik.space)
+
 
 ---
 
