@@ -153,3 +153,50 @@ Show a snippet of what great looks like. LLMs pattern-match well -- even one exa
 ### 8. Use placeholders consistently
 
 Stick to `[BRACKET CAPS]` for user inputs: `[PRODUCT NAME]`, `[TARGET METRIC]`, `[TIME PERIOD]`. Keeps prompts scannable and reusable.
+
+
+
+# Advanced Prompting Techniques for AI Agents
+
+Here is the comprehensive list of prompting techniques tailored for autonomous agents, including their definitions and structural explanations.
+
+---
+
+## 1. ReAct (Reasoning and Acting)
+*   **Definition:** A framework that combines reasoning (generating thoughts) with action (calling external tools) in an alternating loop.
+*   **Explanation:** Traditional prompts ask for a direct answer. ReAct forces the agent to write down its internal thoughts about a problem, choose a specific tool to use, look at the tool's output, and repeat the process until the task is complete.
+*   **Core Loop Structure:** 
+    *   *Thought:* Analyze the current state.
+    *   *Action:* Call a specific tool with parameters.
+    *   *Observation:* Evaluate the data returned by the tool.
+
+## 2. Chain-of-Thought (CoT)
+*   **Definition:** A technique that explicitly instructs the AI to show its step-by-step reasoning before outputting a final answer.
+*   **Explanation:** By breaking a complex logic, coding, or math problem into smaller chronological pieces, the agent reduces its cognitive load and prevents hallucinations. It serves as the foundation for an agent's internal planning phase.
+*   **Trigger Phrase:** "Think step-by-step before taking any action."
+
+## 3. Reflexion (Self-Correction)
+*   **Definition:** A closed-loop prompting pattern where an agent evaluates its own previous outputs, identifies errors, and modifies its next attempt.
+*   **Explanation:** Instead of giving up when a tool fails, a Reflexion prompt instructs the agent to analyze the error message (e.g., a broken SQL query or a 403 API error), write a critique of its mistake, and adjust its next action.
+*   **Core Loop Structure:** `Action -> Evaluation -> Critique -> Refinement`
+
+## 4. Tree of Thoughts (ToT)
+*   **Definition:** An advanced paradigm where the agent explores multiple distinct reasoning paths simultaneously, creating a tree of options.
+*   **Explanation:** Instead of following a single linear train of thought, the agent generates multiple different ways to solve a problem. It evaluates the viability of each path, abandons dead ends, and backtracks to try a different branch if a strategy fails.
+*   **Best Used For:** Complex scheduling, strategic gaming, or multi-layered research tasks.
+
+## 5. Few-Shot / K-Shot Prompting
+*   **Definition:** Providing the agent with a small number of concrete examples (K examples) of the desired input-to-output behavior within the prompt context.
+*   **Explanation:** Agents frequently need to interact with external systems using highly specific formats (like strict JSON schema or precise API layouts). Showing the agent 3 to 5 exact examples of input data and the corresponding perfect output ensures strict compliance without fine-tuning.
+*   **Best Used For:** Enforcing schema outputs and tool parameter matching.
+
+## 6. Program-Aided Language (PAL)
+*   **Definition:** Prompting the agent to write and execute code to solve reasoning and mathematical problems instead of relying on its linguistic memory.
+*   **Explanation:** Large Language Models are prone to calculation errors. PAL instructs the agent to translate a word problem into a programmatic script (like Python), send that script to a secure code interpreter tool, and treat the execution output as the absolute source of truth.
+*   **Core Concept:** Delegates computation from the LLM brain to a deterministic computer engine.
+
+## 7. Generated Knowledge
+*   **Definition:** A technique where the agent is forced to generate a set of relevant facts or rules about a topic *before* attempting to execute the main task.
+*   **Explanation:** This grounds the agent’s working memory. By making the agent explicitly state the constraints, laws, or boundaries of a domain first, it dramatically reduces errors when handling the actual execution.
+*   **Example Prompt Sequence:** "First, list the top 3 rules of GDPR compliance. Second, analyze this user data payload to see if it violates those rules."
+
